@@ -3,15 +3,15 @@ import random
 CharaterList = "!@#$%?&*-+"
 min_length = 8
 
-def get_random_index_from_list():
+def getListCount():
 	
 	line_count = 0
-	file_name = open('character.txt','r')
+	file_obj = open('character.txt','r')
 	
-	for indiv_line in file_name:
+	for indiv_line in file_obj:
 		line_count = line_count + 1
 	
-	file_name.close()
+	file_obj.close()
 	
 	return line_count
 	
@@ -46,7 +46,7 @@ def remove_char(character_name,token):
 	
 	return return_character
 
-def read_character_name(no_of_character):
+def getRandomCharacter(no_of_character):
 	
 	selected_character = ""
 	character_file = open('character.txt','r')
@@ -82,13 +82,13 @@ def check_entry(character_name):
 
 def make_password(character_name):
 	
-	integer_out = random.randrange(9)
+	integer_out = random.randrange(10)
 	output_string = character_name + `integer_out`
 	output_string = output_string + CharaterList[random.randrange(len(CharaterList))]
 	
 	while len(output_string) < min_length:
 		
-		integer_out = random.randrange(9)
+		integer_out = random.randrange(10)
 		output_string = output_string + `integer_out`
 		
 	return output_string
@@ -105,7 +105,7 @@ def main():
 	input_from_user = ""
 	
 	while 1:
-		character_name = read_character_name(get_random_index_from_list())
+		character_name = getRandomCharacter(getListCount())
 		generated_passwd = make_password(character_name)	
 		
 		if check_entry( generated_passwd ) == 1:
