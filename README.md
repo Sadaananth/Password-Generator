@@ -9,7 +9,7 @@ How to use this:
 --------------------
 1. Enter any set of words you want to be part of Password in character.txt. Be it a word or name or SuperHero.
 2. Type
-    ============== python passwd_gen.py ===================
+   ```python passwd_gen.py```
 3. it will prompt with a password 
 4. if you have already used that password that will be updated in to entry.txt.
 5. Else you can use that password.
